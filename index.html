@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Eran Tartakovski</title>
+<meta name="description" content="Site under construction.">
+<meta name="color-scheme" content="dark">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #020510;
+    --navy: #07163a;
+    --blue: #1553d6;
+    --cyan: #3aa0ff;
+    --text: #eaf1ff;
+    --muted: #8fa3cc;
+    color-scheme: dark;
+  }
+  * { box-sizing: border-box; }
+  html, body { height: 100%; margin: 0; }
+  body {
+    font-family: "Space Grotesk", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+    color: var(--text);
+    background:
+      radial-gradient(60rem 40rem at 85% 110%, rgba(21, 83, 214, .55), transparent 60%),
+      radial-gradient(40rem 30rem at 10% -10%, rgba(58, 160, 255, .18), transparent 60%),
+      linear-gradient(160deg, var(--ink) 0%, var(--navy) 55%, #0a2466 100%);
+    background-attachment: fixed;
+    display: flex;
+    align-items: center;
+    padding: clamp(1.5rem, 6vw, 6rem);
+    overflow-x: hidden;
+  }
+  /* faint grid, fading out toward the top-left */
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(120, 160, 255, .07) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(120, 160, 255, .07) 1px, transparent 1px);
+    background-size: 56px 56px;
+    -webkit-mask-image: radial-gradient(70% 70% at 80% 100%, #000, transparent 75%);
+            mask-image: radial-gradient(70% 70% at 80% 100%, #000, transparent 75%);
+    pointer-events: none;
+  }
+  /* the one moment of motion: a slow glow drifting in the corner */
+  body::after {
+    content: "";
+    position: fixed;
+    right: -12rem;
+    bottom: -12rem;
+    width: 34rem;
+    height: 34rem;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(58, 160, 255, .35), transparent 65%);
+    filter: blur(20px);
+    animation: drift 14s ease-in-out infinite alternate;
+    pointer-events: none;
+  }
+  @keyframes drift {
+    from { transform: translate(0, 0) scale(1); }
+    to   { transform: translate(-6rem, -4rem) scale(1.15); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    body::after { animation: none; }
+  }
+
+  main { position: relative; z-index: 1; max-width: 40rem; }
+  h1 {
+    margin: 0;
+    font-weight: 600;
+    font-size: clamp(2.4rem, 7vw, 4.5rem);
+    line-height: 1.05;
+    letter-spacing: -0.03em;
+  }
+  .name {
+    margin: 2rem 0 .35rem;
+    font-size: clamp(1.1rem, 2.4vw, 1.35rem);
+    font-weight: 500;
+  }
+  .email {
+    color: var(--cyan);
+    font-size: clamp(1rem, 2.2vw, 1.15rem);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(58, 160, 255, .35);
+    padding-bottom: 2px;
+    transition: border-color .2s, color .2s;
+    overflow-wrap: anywhere;
+  }
+  .email:hover { color: #fff; border-color: #fff; }
+  .email:focus-visible {
+    outline: 2px solid var(--cyan);
+    outline-offset: 4px;
+    border-radius: 2px;
+  }
+</style>
+</head>
+<body>
+  <main>
+    <h1>Site under construction</h1>
+    <p class="name">Eran Tartakovski</p>
+    <a class="email" href="mailto:Tartakovski@gmail.com">Tartakovski@gmail.com</a>
+  </main>
+</body>
+</html>
